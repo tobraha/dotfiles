@@ -98,12 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# load aliases from .config
+# load aliases, functions, exports
 source $HOME/scripts/shell/aliases.sh 2>/dev/null
-source $HOME/scripts/shell/functions.sh
-
-# define 'less'; only use pagination if output exceeds terminal
-export LESS="-F -X $LESS"
+source $HOME/scripts/shell/functions.sh 2>/dev/null
+source $HOME/scripts/shell/exports.sh 2>/dev/null
 
 # Load zsh-syntax-highlighting; should be last
 source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
