@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # load aliases from .config
-source $HOME/.config/aliasrc 2>/dev/null
+source $HOME/scripts/shell/aliases.sh 2>/dev/null
 source $HOME/scripts/shell/functions.sh
 
 # define 'less'; only use pagination if output exceeds terminal
