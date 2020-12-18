@@ -1,0 +1,140 @@
+{
+    "guid": "root________",
+    "title": "",
+    "index": 0,
+    "dateAdded": 1607387719952000,
+    "lastModified": 1608252914991000,
+    "id": 1,
+    "typeCode": 2,
+    "type": "text/x-moz-place-container",
+    "root": "placesRoot",
+    "children": [
+        {
+            "guid": "menu________",
+            "title": "menu",
+            "index": 0,
+            "dateAdded": 1607387719952000,
+            "lastModified": 1608252914991000,
+            "id": 2,
+            "typeCode": 2,
+            "type": "text/x-moz-place-container",
+            "root": "bookmarksMenuFolder"
+        },
+        {
+            "guid": "toolbar_____",
+            "title": "toolbar",
+            "index": 1,
+            "dateAdded": 1607387719952000,
+            "lastModified": 1608252627565000,
+            "id": 3,
+            "typeCode": 2,
+            "type": "text/x-moz-place-container",
+            "root": "toolbarFolder",
+            "children": [
+                {
+                    "guid": "SdMSRThe6zpG",
+                    "title": "x-zvf/dotfiles: My Dotfiles for Arch Linux with i3-gaps, vim, tmux",
+                    "index": 0,
+                    "dateAdded": 1608144300566000,
+                    "lastModified": 1608144300566000,
+                    "id": 15,
+                    "typeCode": 1,
+                    "iconuri": "https://github.githubassets.com/favicons/favicon.svg",
+                    "type": "text/x-moz-place",
+                    "uri": "https://github.com/x-zvf/dotfiles"
+                },
+                {
+                    "guid": "PF0SaeegwHa2",
+                    "title": "QEMU NAT",
+                    "index": 1,
+                    "dateAdded": 1608252591159000,
+                    "lastModified": 1608252627565000,
+                    "id": 16,
+                    "typeCode": 2,
+                    "type": "text/x-moz-place-container",
+                    "children": [
+                        {
+                            "guid": "63izSjOptaFC",
+                            "title": "Qemu Networking Setup",
+                            "index": 0,
+                            "dateAdded": 1607577486660000,
+                            "lastModified": 1608252601249000,
+                            "id": 13,
+                            "typeCode": 1,
+                            "iconuri": "https://apiraino.github.io/assets/favicon.ico",
+                            "type": "text/x-moz-place",
+                            "uri": "https://apiraino.github.io/qemu-bridge-networking/"
+                        },
+                        {
+                            "guid": "cJnvfU1FykWS",
+                            "title": "Custom NAT-based network \u2014 libvirt Networking Handbook \u2014 Jamie Nguyen",
+                            "index": 1,
+                            "dateAdded": 1607581205383000,
+                            "lastModified": 1608252607390000,
+                            "id": 14,
+                            "typeCode": 1,
+                            "type": "text/x-moz-place",
+                            "uri": "https://jamielinux.com/docs/libvirt-networking-handbook/custom-nat-based-network.html"
+                        },
+                        {
+                            "guid": "G5SMj3S-pQ0V",
+                            "title": "Dummy interface on RHEL \u2014 libvirt Networking Handbook \u2014 Jamie Nguyen",
+                            "index": 2,
+                            "dateAdded": 1608252615510000,
+                            "lastModified": 1608252615510000,
+                            "id": 17,
+                            "typeCode": 1,
+                            "type": "text/x-moz-place",
+                            "uri": "https://jamielinux.com/docs/libvirt-networking-handbook/appendix/dummy-interface-on-rhel.html"
+                        },
+                        {
+                            "guid": "Yb-AIcTQEFSI",
+                            "title": "NAT virtual bridge on RHEL \u2014 libvirt Networking Handbook \u2014 Jamie Nguyen",
+                            "index": 3,
+                            "dateAdded": 1608252622074000,
+                            "lastModified": 1608252622074000,
+                            "id": 18,
+                            "typeCode": 1,
+                            "type": "text/x-moz-place",
+                            "uri": "https://jamielinux.com/docs/libvirt-networking-handbook/appendix/nat-virtual-bridge-on-rhel.html"
+                        },
+                        {
+                            "guid": "3T3nef_GGCOe",
+                            "title": "VirtualNetworking - Libvirt Wiki",
+                            "index": 4,
+                            "dateAdded": 1608252627565000,
+                            "lastModified": 1608252627565000,
+                            "id": 19,
+                            "typeCode": 1,
+                            "iconuri": "https://wiki.libvirt.org/apple-touch-icon.png",
+                            "type": "text/x-moz-place",
+                            "uri": "https://wiki.libvirt.org/page/VirtualNetworking#The_default_configuration"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "guid": "unfiled_____",
+            "title": "unfiled",
+            "index": 3,
+            "dateAdded": 1607387719952000,
+            "lastModified": 1607577515408000,
+            "id": 5,
+            "typeCode": 2,
+            "type": "text/x-moz-place-container",
+            "root": "unfiledBookmarksFolder"
+        },
+        {
+            "guid": "mobile______",
+            "title": "mobile",
+            "index": 4,
+            "dateAdded": 1607387720015000,
+            "lastModified": 1607387720182000,
+            "id": 6,
+            "typeCode": 2,
+            "type": "text/x-moz-place-container",
+            "root": "mobileFolder"
+        }
+    ]
+}
