@@ -358,6 +358,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; use emacs for gpg pin entry, not local gpg agent
   (setq epa-pinentry-mode 'loopback)
 
+  ;; set transparency
+  (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
+  (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
+
+  ;; toggle transparency with: C-c t
+  (defun toggle-transparency ()
+    (interactive)
+    (let ((alpha (frame-parameter nil 'alpha)))
+      (set-frame-parameter
+       nil 'alpha
+       (if (eql (cond ((numberp alpha) alpha)
+                      ((numberp (cdr alpha)) (cdr alpha))
+                      ;; Also handle undocumented (<active> <inactive>) form.
+                      ((numberp (cadr alpha)) (cadr alpha)))
+                100)
+           '(85 . 50) '(100 . 100)))))
+  (global-set-key (kbd "C-c t") 'toggle-transparency)
+
 )
 
 (defun dotspacemacs/user-config ()
