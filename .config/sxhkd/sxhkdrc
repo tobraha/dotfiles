@@ -1,14 +1,24 @@
+# -*-Conf-*-
 #
 # wm independent hotkeys
 #
 
 # terminal emulator
 super + Return
-	alacritty
+  st
 
-# web browser (firefox)
-super + alt + b
-  firefox
+# web browser: firefox | choose profiles
+super + alt + b ; {t,c,a}
+  firefox -P {"Tommy","Charles-IT", "Ambitions"}
+
+# config files; open with emacs
+super + alt + c ; {b,s,e,x,z,n}
+  emacs { "~/dotfiles/.config/bspwm/bspwmrc", \
+         "~/dotfiles/.config/sxhkd/sxhkdrc", \
+         "~/dotfiles/.spacemacs", \
+         "~/.xinitrc", \
+         "~/dotfiles/.zshrc", \
+         "~/sync/ATG/tommy_notebook.org" }
 
 # program launcher
 super + @space
@@ -124,17 +134,36 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# volume control
+#
+# Audio Controls
+#
+
+
+
+# volume control - Dell Soundbar
 XF86AudioLowerVolume
-  amixer set Master 5%-
+  pactl set-sink-volume 1 -5%
 
 XF86AudioRaiseVolume
-  amixer set Master 5%+
+  pactl set-sink-volume 1 +5%
 
 XF86AudioMute
-  amixer set Master toggle
+  pactl set-sink-volume 1 0%
+
+# volume control - Logitech Headset
+super + XF86AudioLowerVolume
+  pactl set-sink-volume 0 -5%
+
+super + XF86AudioRaiseVolume
+  pactl set-sink-volume 0 +5%
+
+super + XF86AudioMute
+  pactl set-sink-volume 0 0%
+
+#
+# Misc
+#
 
 # lock screen
 super + x
   betterlockscreen -l dimblur
-  
