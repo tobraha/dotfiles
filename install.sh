@@ -55,6 +55,8 @@ echo " --> setting up zsh-syntax-highlighting..."
 if ! [[ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]]; then
    echo " --> cloning zsh-syntax-highlighting..."
    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+   echo " --> copying zsh theme customizations..."
+   cp oh-my-zsh/themes/agnoster.zsh-theme $HOME/.oh-my-zsh/themes/
 else
     echo " --> zsh-syntax-highlighting already installed!"
 fi
