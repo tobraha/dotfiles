@@ -92,24 +92,30 @@ fi
 # private repo files
 ###
 
+echo "Checking and installing private repo"
+
 # check for ssh-agent
-if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
-    echo " --> ssh key not found in agent, trying to add it"
-    sagent
-else
-    echo " --> ssh key found in agent; can continue!"
-fi
+if ! [[ -d $PWD/private ]] ; then
+    if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+        echo " --> ssh key not found in agent, trying to add it"
+        sagent
+    else
+        echo " --> ssh key found in agent; can continue!"
+    fi
 
-if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
-    echo " --> prompting for ssh key passowrd:"
-    ssh-add
-fi
+    if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+        echo " --> prompting for ssh key passowrd:"
+        ssh-add
+    fi
 
-if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
-    echo " --> still not able to retrieve ssh key; cannot install private repo"
+    if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+        echo " --> still not able to retrieve ssh key; cannot install private repo"
+    else
+        echo " --> ssh key found, installing private repo"
+        git submodule git@github.com:tobraha/private.git
+    fi
 else
-    echo " --> ssh key found, installing private repo"
-    git submodule git@github.com:tobraha/private.git
+    echo " --> prviate repo already exists!"
 fi
 
 echo ; echo "Done!"
