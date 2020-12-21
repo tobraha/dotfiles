@@ -112,7 +112,7 @@ if ! [[ -d $PWD/private ]] ; then
         echo " --> still not able to retrieve ssh key; cannot install private repo"
     else
         echo " --> ssh key found, installing private repo"
-        git submodule git@github.com:tobraha/private.git
+        git submodule add git@github.com:tobraha/private.git
     fi
 else
     echo " --> prviate repo already exists!"
