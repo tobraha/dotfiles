@@ -1,6 +1,8 @@
 #!/bin/bash
 
+###
 # emacs/spacemacs
+###
 echo "Setting up emacs/spacemacs..."
 
 # only create the link if it either doesn't exist or is not a link
@@ -16,7 +18,7 @@ if ! [[ -d $HOME/.emacs.d ]] ; then
     printf "\nNo .emacs.d folder found - downloading spacemacs...\n"
     git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 elif [[ -d ~/.emacs.d ]] && ! [[ -e ~/.emacs.d/spacemacs.mk ]] ; then
-    printf "\n.emacs.d present, but not spacemacs. Let's get it.\n\n"
+    printf "\n --> .emacs.d present, but not spacemacs. Let's get it.\n\n"
     echo " --> renaming .emacs.d to .emacs.d.old"
     mv ~/.emacs.d ~/.emacs.d.OLD
     git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
@@ -24,7 +26,10 @@ else
     echo "Spacemacs already present! Skipping download."
 fi
 
+###
 # zsh
+###
+
 echo ; echo "Setting up zsh"
 
 # only create the link if it either doesn't exist or is not a link
@@ -65,5 +70,46 @@ ln -sf $PWD/scripts/shell/exports.sh ~/scripts/shell/exports.sh
 
 echo "Sourcing ~/.zshrc"
 source ~/.zshrc
+
+###
+# bspwm+sxhkd+polybar
+###
+
+echo "bspwm - checking for process and installing files..."
+
+# check to see if we're running bspwm and then link files
+if [[ `pgrep bspwm` ]] ; then
+    echo " --> bspwm found!  installing files."
+    mkdir -p ~/.config/{bspwm,sxhkd}
+    ln -sf $PWD/.config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+    ln -sf $PWD/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+    ln -sf $PWD/.config/polybar ~/.config/polybar
+else
+    echo " --> bspwm not found; skipping this!"
+fi
+
+###
+# private repo files
+###
+
+# check for ssh-agent
+if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+    echo " --> ssh key not found in agent, trying to add it"
+    sagent
+else
+    echo " --> ssh key found in agent; can continue!"
+fi
+
+if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+    echo " --> prompting for ssh key passowrd:"
+    ssh-add
+fi
+
+if ! [[ `ssh-add -l | grep -i I6M0VOSO7` ]] ; then
+    echo " --> still not able to retrieve ssh key; cannot install private repo"
+else
+    echo " --> ssh key found, installing private repo"
+    git submodule git@github.com:tobraha/private.git
+fi
 
 echo ; echo "Done!"

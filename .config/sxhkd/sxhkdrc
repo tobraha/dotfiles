@@ -24,6 +24,10 @@ super + alt + c ; {b,s,e,x,z,n}
 super + @space
 	dmenu_run
 
+# file manager
+super + e
+  pcmanfm
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
