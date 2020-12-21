@@ -103,6 +103,8 @@ source $HOME/scripts/shell/exports.sh 2>/dev/null
 source $HOME/scripts/shell/aliases.sh 2>/dev/null
 source $HOME/scripts/shell/functions.sh 2>/dev/null
 
+# source private stuff
+source $HOME/dotfiles/private/aliasrc 2>/dev/null
 
 # Load zsh-syntax-highlighting; should be last
 source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

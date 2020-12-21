@@ -170,4 +170,4 @@ super + XF86AudioMute
 
 # lock screen
 super + x
-  betterlockscreen -l dimblur
+  betterlockscreen -l dimblur -t "You shall not pass!"
