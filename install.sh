@@ -120,4 +120,7 @@ else
     echo " --> prviate repo already exists!"
 fi
 
+# source private aliasrc
+source $HOME/dotfiles/private/aliasrc
+
 echo ; echo "Done!"
