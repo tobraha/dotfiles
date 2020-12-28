@@ -59,9 +59,9 @@ font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
-modules-left = bspwm i3
+modules-left = bspwm
 modules-center = xwindow pacman-updates
-modules-right = filesystem pulseaudio xkeyboard memory cpu eth date powermenu
+modules-right = filesystem pulseaudio memory cpu eth date powermenu
 
 separator = |
 tray-position = none
