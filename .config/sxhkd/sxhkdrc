@@ -12,10 +12,11 @@ super + alt + b ; {t,c,a}
   firefox -P {"Tommy","Charles-IT", "Ambitions"}
 
 # config files; open with emacs
-super + alt + c ; {b,s,e,x,z,n}
+super + alt + c ; {b,s,e,p,x,z,n}
   emacs { "~/dotfiles/.config/bspwm/bspwmrc", \
          "~/dotfiles/.config/sxhkd/sxhkdrc", \
          "~/dotfiles/.spacemacs", \
+         "~/sync/candle/candle.txt.gpg", \
          "~/.xinitrc", \
          "~/dotfiles/.zshrc", \
          "~/sync/ATG/tommy_notebook.org" }
@@ -27,6 +28,10 @@ super + @space
 # file manager
 super + e
   pcmanfm
+
+# ksnip screenshots
+super + Print
+  ksnip -r
 
 # make sxhkd reload its configuration files:
 super + Escape
