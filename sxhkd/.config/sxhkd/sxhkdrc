@@ -147,6 +147,22 @@ super + {Left,Down,Up,Right}
 # Audio Controls
 #
 
+# playback controls
+XF86AudioPrev
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.spotify \
+  /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+XF86AudioNext
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.spotify \
+  /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPlay
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.spotify \
+  /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
 # volume control - Dell Soundbar
 XF86AudioLowerVolume
   pactl set-sink-volume 1 -5%
