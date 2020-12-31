@@ -61,7 +61,7 @@ font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
 modules-left = bspwm
 modules-center = xwindow pacman-updates
-modules-right = filesystem pulseaudio-control memory cpu eth date powermenu
+modules-right = filesystem spotify pulseaudio-control memory cpu eth date powermenu
 
 separator = |
 tray-position = none
@@ -103,7 +103,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python /home/ermanno/.config/scripts/spotify_status.py -f '{artist}: {song}'
+exec = python ~/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = #1db954
 
 [module/pulseaudio-control]
@@ -124,29 +124,14 @@ click-middle = pulseaudio-control --sink-blacklist "alsa_output.pci-0000_01_00.1
 scroll-up = pulseaudio-control --volume-max 130 up
 scroll-down = pulseaudio-control --volume-max 130 down
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
 [module/filesystem]
 type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
-label-mounted =  %free%
+label-mounted =  %mountpoint% %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 

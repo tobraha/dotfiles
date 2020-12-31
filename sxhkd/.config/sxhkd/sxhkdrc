@@ -13,12 +13,12 @@ super + alt + b ; {t,c,a}
 
 # config files; open with emacs
 super + alt + c ; {b,s,e,p,x,z,n}
-  emacs { "~/dotfiles/.config/bspwm/bspwmrc", \
-         "~/dotfiles/.config/sxhkd/sxhkdrc", \
-         "~/dotfiles/.spacemacs", \
+  emacs { "~/.config/bspwm/bspwmrc", \
+         "~/.config/sxhkd/sxhkdrc", \
+         "~/.spacemacs", \
          "~/sync/candle/candle.txt.gpg", \
          "~/.xinitrc", \
-         "~/dotfiles/.zshrc", \
+         "~/.zshrc", \
          "~/sync/ATG/tommy_notebook.org" }
 
 # program launcher
@@ -147,8 +147,6 @@ super + {Left,Down,Up,Right}
 # Audio Controls
 #
 
-
-
 # volume control - Dell Soundbar
 XF86AudioLowerVolume
   pactl set-sink-volume 1 -5%
@@ -159,15 +157,15 @@ XF86AudioRaiseVolume
 XF86AudioMute
   pactl set-sink-volume 1 0%
 
-# volume control - Logitech Headset
-super + XF86AudioLowerVolume
-  pactl set-sink-volume 0 -5%
+# volume control - Logitech Headset & bluetooth headphones
+super + {_,alt + } XF86AudioLowerVolume
+  pactl set-sink-volume {0,4} -5%
 
-super + XF86AudioRaiseVolume
-  pactl set-sink-volume 0 +5%
+super + {_,alt + } XF86AudioRaiseVolume
+  pactl set-sink-volume {0,4} +5%
 
-super + XF86AudioMute
-  pactl set-sink-volume 0 0%
+super + {_,alt + } XF86AudioMute
+  pactl set-sink-volume {0,4} 0%
 
 #
 # Misc
