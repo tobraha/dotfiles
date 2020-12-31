@@ -376,6 +376,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
            '(85 . 50) '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency)
 
+  ;; follow symlinks by default
+  (setq vc-follow-symlinks t)
+
 )
 
 (defun dotspacemacs/user-config ()
