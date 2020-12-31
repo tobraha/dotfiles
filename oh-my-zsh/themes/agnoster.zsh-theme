@@ -64,7 +64,7 @@ prompt_segment() {
     [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
     [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
     if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-        echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+        echo -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
     else
         echo -n "%{$bg%}%{$fg%} "
     fi
@@ -75,7 +75,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
     if [[ -n $CURRENT_BG ]]; then
-        echo -n " %{%k%F{$CURRENT_BG}%}"
+        echo -n "%{%k%F{$CURRENT_BG}%}"
     else
         echo -n "%{%k%}"
     fi
@@ -83,14 +83,11 @@ prompt_end() {
     CURRENT_BG=''
 }
 
-### Prompt components
-# Each component will draw itself, and hide itself if no information needs to be shown
-
-# Context: user@hostname (who am I and where am I)
 prompt_context() {
-    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
-    fi
+    prompt_segment
+
+    #printf to kill the mystery space...?
+    printf "\b%s" "%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b"
 }
 
 # Git: branch/detached head, dirty status
@@ -117,12 +114,14 @@ prompt_git() {
         fi
 
         if [[ -e "${repo_path}/BISECT_LOG" ]]; then
-            mode=" <B>"
+            mode="<B>"
         elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
-            mode=" >M<"
+            mode=">M<"
         elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
-            mode=" >R>"
+            mode=">R>"
         fi
+
+        remote="$(git remote -v | grep origin | awk '{print $2}' | head -n 1 2>/dev/null)"
 
         setopt promptsubst
         autoload -Uz vcs_info
@@ -135,7 +134,9 @@ prompt_git() {
         zstyle ':vcs_info:*' formats ' %u%c'
         zstyle ':vcs_info:*' actionformats ' %u%c'
         vcs_info
-        echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode}"
+        echo -n " $remote ${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode}"
+        prompt_segment
+        echo
     fi
 }
 
@@ -165,8 +166,8 @@ build_prompt() {
     RETVAL=$?
     prompt_status
     prompt_virtualenv
-    #prompt_context
     prompt_git
+    prompt_context
     prompt_end
 }
 
@@ -176,4 +177,4 @@ else
     prompt_char="λ"
 fi
 
-PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}%b$(build_prompt)$prompt_char '
+PROMPT='$(build_prompt)$prompt_char '
