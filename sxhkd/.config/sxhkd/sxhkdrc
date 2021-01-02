@@ -165,23 +165,26 @@ XF86AudioPlay
 
 # volume control - Dell Soundbar
 XF86AudioLowerVolume
-  pactl set-sink-volume 1 -5%
+  pactl set-sink-volume alsa_output.usb-Dell_Dell_AC511_USB_SoundBar-00.analog-stereo -5%
 
 XF86AudioRaiseVolume
-  pactl set-sink-volume 1 +5%
+  pactl set-sink-volume alsa_output.usb-Dell_Dell_AC511_USB_SoundBar-00.analog-stereo +5%
 
 XF86AudioMute
-  pactl set-sink-volume 1 0%
+  pactl set-sink-volume alsa_output.usb-Dell_Dell_AC511_USB_SoundBar-00.analog-stereo 0%
 
 # volume control - Logitech Headset & bluetooth headphones
 super + {_,alt + } XF86AudioLowerVolume
-  pactl set-sink-volume {0,4} -5%
+  pactl set-sink-volume {alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo, \
+                         bluez_sink.6C_5A_B5_5A_76_F6.a2dp_sink} -5%
 
 super + {_,alt + } XF86AudioRaiseVolume
-  pactl set-sink-volume {0,4} +5%
+  pactl set-sink-volume {alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo, \
+                         bluez_sink.6C_5A_B5_5A_76_F6.a2dp_sink} +5%
 
 super + {_,alt + } XF86AudioMute
-  pactl set-sink-volume {0,4} 0%
+  pactl set-sink-volume {alsa_output.usb-Logitech_Logitech_USB_Headset-00.analog-stereo, \
+                         bluez_sink.6C_5A_B5_5A_76_F6.a2dp_sink} 0%
 
 #
 # Misc
