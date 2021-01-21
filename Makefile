@@ -65,7 +65,6 @@ sxhkd:
 zsh:
 	@printf "$(YELLOW)--- zsh ------------------------------------------------\n$(RESET)"
 	stow -t "$$HOME" zsh
-	source "$$HOME/.zshrc"
 
 nuke:
 	@printf "$(RED)--- nuking existing files ------------------------------\n$(RESET)"
