@@ -5,6 +5,8 @@ pgrep -x dunst > /dev/null || dunst &
 
 $HOME/.config/polybar/launch.sh
 
+# wmname for Java GUI issues
+wmname LG3D
 
 bspc monitor HDMI-1 -d I II III IV V
 bspc monitor DP-1 -d VI VII VIII IX X

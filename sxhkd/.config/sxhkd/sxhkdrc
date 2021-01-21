@@ -5,7 +5,7 @@
 
 # terminal emulator
 super + Return
-  st
+  alacritty
 
 # web browser: firefox | choose profiles
 super + alt + b ; {t,c,a}
