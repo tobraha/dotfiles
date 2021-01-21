@@ -16,12 +16,13 @@ endif
 install:
 	@make $(UNAME)
 
-Linux: bspwm dunst emacs oh-my-zsh polybar sxhkd zsh
+Linux: alacritty bspwm dunst emacs oh-my-zsh polybar sxhkd zsh
 Windows: bash git vim
 Other: bash git vim
 
 clean:
 	@printf "$(RED)--- clean -----------------------------------------------\n$(RESET)"
+	stow -t "$$HOME" -D alacritty
 	stow -t "$$HOME" -D bspwm
 	stow -t "$$HOME" -D dunst
 	stow -t "$$HOME" -D emacs
@@ -29,6 +30,10 @@ clean:
 	stow -t "$$HOME" -D polybar
 	stow -t "$$HOME" -D sxhkd
 	stow -t "$$HOME" -D zsh
+
+alacritty:
+	@printf "$(YELLOW)--- alacritty ------------------------------------------\n$(RESET)"
+	stow -t "$$HOME" alacritty
 
 bspwm:
 	@printf "$(YELLOW)--- bspwm ----------------------------------------------\n$(RESET)"
@@ -60,9 +65,10 @@ sxhkd:
 zsh:
 	@printf "$(YELLOW)--- zsh ------------------------------------------------\n$(RESET)"
 	stow -t "$$HOME" zsh
+	source "$$HOME/.zshrc"
 
 nuke:
 	@printf "$(RED)--- nuking existing files ------------------------------\n$(RESET)"
-	rm -rf ~/.config/{bspwm,dunst,polybar,sxhkd} ~/.emacs.d ~/.spacemacs ~/.oh-my-zsh ~/.zshrc
+	rm -rf ~/.config/{alacritty,bspwm,dunst,polybar,sxhkd} ~/.emacs.d ~/.spacemacs ~/.oh-my-zsh ~/.zshrc
 
-.PHONY: bspwm dunst emacs oh-my-zsh polybar sxhkd zsh clean install nuke Windows Linux Other
+.PHONY: alacritty bspwm dunst emacs oh-my-zsh polybar sxhkd zsh clean install nuke Windows Linux Other
