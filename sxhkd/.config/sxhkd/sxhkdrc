@@ -37,6 +37,10 @@ super + Print
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# make dunst reload its config files:
+super + shift + Escape
+  pkill -USR1 -x dunst
+
 # udiskie-dmenu - manage mounted volumes
 super + d
   udiskie-dmenu
