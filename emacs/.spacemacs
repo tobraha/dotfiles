@@ -30,7 +30,11 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(rust
+   '(treemacs :variables
+              (treemacs-use-follow-mode t
+              treemacs-use-filewatch-mode t
+              treemacs-use-git-mode 'deferred)
+     rust
      systemd
      javascript
      windows-scripts
@@ -314,6 +318,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;; set org-mode table values
   (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red3" :weight bold)
               ("IN-PROGRESS" :foreground "green" :weight bold)
@@ -349,6 +354,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
   ;; ========== Multiple Cursors =============================
+
+  (global-set-key [f8] 'treemacs)
 
   ;; Use C-c a to open org agenda
   (add-hook 'org-mode-hook
