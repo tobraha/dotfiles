@@ -98,7 +98,7 @@ prompt_git() {
     fi
     local PL_BRANCH_CHAR
     () {
-        local LC_ALL="" LC_CTYPE="en_US.UTF-8"
+        local LC_ALL="en_US.utf8" LC_CTYPE="en_US.utf8"
         PL_BRANCH_CHAR=$'\ue0a0'         # 
     }
     local ref dirty mode repo_path
