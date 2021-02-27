@@ -3,9 +3,11 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# terminal emulators
 super + Return
   st -f "Iosevka Extended-10"
+super + a
+  alacritty
 
 # web browser: firefox | choose profiles
 super + alt + b ; {t,c,a}
