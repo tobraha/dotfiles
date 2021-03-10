@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(treemacs :variables
+   '(perl5
+     treemacs :variables
               (treemacs-use-follow-mode t
               treemacs-use-filewatch-mode t
               treemacs-use-git-mode 'deferred)
@@ -66,6 +67,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      ox-twbs
                                       multiple-cursors
                                       )
    ;; A list of packages that cannot be updated.
@@ -135,7 +137,7 @@ values."
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'org-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -276,7 +278,11 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:relative t
+                                       :disabled-for-modes dired-mode
+                                       doc-view-mode
+                                       pdf-view-mode
+                                       org-mode)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -318,6 +324,22 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;; use emacs for gpg pin entry, not local gpg agent
+  (setq epa-pinentry-mode 'loopback)
+
+  ;; follow symlinks by default
+  (setq vc-follow-symlinks t)
+
+)
+
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+
   ;; set org-mode table values
   (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red3" :weight bold)
@@ -326,11 +348,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
               ("SCHEDULED" :foreground "orange" :weight bold)
               ("DONE" :foreground "forest green" :weight bold))))
 
-  ;; set C-c a to open org agenda
-  (local-set-key [3 97] (quote org-agenda))
-
-  ;; set default DONE TODO message
+  ;; set default org DONE message
   (setq org-log-done 'time)
+
+  ;; persist clock history across emacs sessions
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate)
 
   ;; ========== Multiple Cursors =============================
   ;; (require 'multiple-cursors)
@@ -349,12 +372,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key (kbd "M-#") #'mc/unmark-next-like-this)
   (global-set-key (kbd "M-$") #'mc/unmark-previous-like-this)
 
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this-word)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this-word)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-  ;; ========== Multiple Cursors =============================
+  ;; add cursor to each line of an active region
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  ;; ========== End Multiple Cursors ==========================
 
+  ;; use f8 to toggle treemacs
   (global-set-key [f8] 'treemacs)
 
   ;; Use C-c a to open org agenda
@@ -362,9 +388,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
             (lambda ()
               (local-set-key [3 97] (quote org-agenda))
               (local-set-key (kbd "C-#") #'mc/mark-next-like-this)))
-
-  ;; use emacs for gpg pin entry, not local gpg agent
-  (setq epa-pinentry-mode 'loopback)
 
   ;; set transparency
   (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
@@ -384,18 +407,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
            '(85 . 50) '(100 . 100)))))
   (global-set-key (kbd "C-c t") 'toggle-transparency)
 
-  ;; follow symlinks by default
-  (setq vc-follow-symlinks t)
-
-)
-
-(defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration.
-This is the place where most of your configurations should be done. Unless it is
-explicitly specified that a variable should be set before a package is loaded,
-you should place your code here."
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -417,3 +428,25 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(org-agenda-files '("~/sync/ATG/tommy_notebook.org"))
+ '(package-selected-packages
+   '(ox-twbs realgud test-simple loc-changes load-relative dap-mode lsp-treemacs bui lsp-mode company-plsense yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc coffee-mode powershell mmm-mode markdown-toc markdown-mode gh-md yapfify xterm-color web-mode tagedit slim-mode shell-pop scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download multiple-cursors multi-term live-py-mode hy-mode dash-functional htmlize helm-pydoc helm-css-scss helm-company helm-c-yasnippet haml-mode gnuplot fuzzy flycheck-pos-tip pos-tip flycheck eshell-z eshell-prompt-extras esh-help emmet-mode cython-mode company-web web-completion-data company-statistics company-anaconda company auto-yasnippet yasnippet anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
