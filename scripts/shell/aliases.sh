@@ -3,6 +3,7 @@
 alias _=sudo
 alias l="ls -al"
 alias se="sudo -e"
+alias ping="sudo nping -c 0 --delay 2s"
 
 alias readme='pandoc README.md | lynx -stdin'
 alias bd='base64 -d'
