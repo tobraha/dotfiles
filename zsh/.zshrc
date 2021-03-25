@@ -99,9 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # load aliases, functions, exports
-source $HOME/scripts/shell/exports.sh 2>/dev/null
-source $HOME/scripts/shell/aliases.sh 2>/dev/null
-source $HOME/scripts/shell/functions.sh 2>/dev/null
+source $HOME/dotfiles/scripts/shell/exports.sh 2>/dev/null
+source $HOME/dotfiles/scripts/shell/aliases.sh 2>/dev/null
+source $HOME/dotfiles/scripts/shell/functions.sh 2>/dev/null
 
 # source private stuff
 source $HOME/dotfiles/private/aliasrc 2>/dev/null
