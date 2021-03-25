@@ -51,7 +51,7 @@ emacs:
 oh-my-zsh:
 	@printf "$(YELLOW)--- oh-my-zsh ------------------------------------------\n$(RESET)"
 	git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-	cp oh-my-zsh/themes/agnoster.zsh-theme ~/.oh-my-zsh/themes/
+	ln -sf ~/dotfiles/oh-my-zsh/themes/agnoster-custom.zsh-theme ~/.oh-my-zsh/themes/agnoster-custom.zsh-theme
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 polybar:
