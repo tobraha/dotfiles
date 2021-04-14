@@ -13,6 +13,10 @@ super + a
 super + alt + b ; {t,c,a}
   firefox -P {"Tommy","Charles-IT", "Ambitions"}
 
+# web browser: qutebrowser
+super + alt + b ; q
+  qutebrowser
+
 # config files; open with emacs
 super + alt + c ; {b,s,e,p,x,z,n}
   emacs { "~/.config/bspwm/bspwmrc", \
