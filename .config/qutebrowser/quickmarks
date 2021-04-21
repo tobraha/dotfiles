@@ -1,0 +1,9 @@
+dots-make https://github.com/masasam/dotfiles
+picom-fork https://github.com/jonaburg/picom
+polybar-themes https://github.com/adi1090x/polybar-themes
+gruvbox-theme https://github.com/FilipeMCruz/dotfiles
+ip-calc http://www.ip-calc.com/
+certbot https://medium.com/@tobywilkes/using-certbot-with-a-proxy-in-nginx-a5fe34ec6b5
+wg-dash https://github.com/donaldzou/wireguard-dashboard
+py-qrencode https://github.com/Arachnid/pyqrencode/tree/master
+trello-hnib https://trello.com/b/v0azzwfa/hnib
