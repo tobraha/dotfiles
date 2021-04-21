@@ -265,6 +265,12 @@ c.colors.webpage.darkmode.enabled = True
 #   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
 c.colors.webpage.darkmode.algorithm = 'brightness-rgb'
 
+# Default font families to use. Whenever "default_family" is used in a
+# font setting, it's replaced with the fonts listed here. If set to an
+# empty value, a system-specific monospace default is used.
+# Type: List of Font, or Font
+c.fonts.default_family = 'Iosevka'
+
 # Bindings for normal mode
 config.bind(',ap', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/apprentice/apprentice-all-sites.css ""')
 config.bind(',dr', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/darculized/darculized-all-sites.css ""')
