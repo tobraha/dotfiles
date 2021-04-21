@@ -9,6 +9,10 @@ super + Return
 super + a
   alacritty
 
+# ranger file manager
+super + r
+  st -f "Iosevka Extended-10" ranger
+
 # web browser: firefox | choose profiles
 super + alt + b ; {t,c,a}
   firefox -P {"Tommy","Charles-IT", "Ambitions"}
