@@ -29,6 +29,7 @@ clean:
 	stow -t "$$HOME" -D oh-my-zsh
 	stow -t "$$HOME" -D polybar
 	stow -t "$$HOME" -D sxhkd
+	stow -t "$$HOME" -D tmux
 	stow -t "$$HOME" -D zsh
 
 alacritty:
@@ -62,12 +63,16 @@ sxhkd:
 	@printf "$(YELLOW)--- sxhkd ----------------------------------------------\n$(RESET)"
 	stow -t "$$HOME" sxhkd
 
+tmux:
+	@printf "$(YELLOW)--- tmux -----------------------------------------------\n$(RESET)"
+	stow -t "$$HOME" tmux
+
 zsh:
 	@printf "$(YELLOW)--- zsh ------------------------------------------------\n$(RESET)"
 	stow -t "$$HOME" zsh
 
 nuke:
 	@printf "$(RED)--- nuking existing files ------------------------------\n$(RESET)"
-	rm -rf ~/.config/{alacritty,bspwm,dunst,polybar,sxhkd} ~/.emacs.d ~/.spacemacs ~/.oh-my-zsh ~/.zshrc
+	rm -rf ~/.config/{alacritty,bspwm,dunst,polybar,sxhkd} ~/.emacs.d ~/.spacemacs ~/.oh-my-zsh ~/.zshrc ~/.tmux.conf
 
-.PHONY: alacritty bspwm dunst emacs oh-my-zsh polybar sxhkd zsh clean install nuke Windows Linux Other
+.PHONY: alacritty bspwm dunst emacs oh-my-zsh polybar sxhkd tmux zsh clean install nuke Windows Linux Other
