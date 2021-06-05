@@ -14,8 +14,8 @@ super + r
   st -f "Iosevka Extended-10" ranger
 
 # web browser: firefox | choose profiles
-super + alt + b ; {t,c,a}
-  firefox -P {"Tommy","Charles-IT", "Ambitions"}
+super + alt + b ; {t,c,a,i}
+  firefox -P {"Tommy","Charles-IT", "Ambitions", "Insurity"}
 
 # web browser: qutebrowser
 super + alt + b ; q
@@ -29,7 +29,7 @@ super + alt + c ; {b,s,e,p,x,z,n}
          "~/sync/candle/candle.txt.gpg", \
          "~/.xinitrc", \
          "~/.zshrc", \
-         "~/sync/ATG/tommy_notebook.org" }
+         "~/sync/ATG/tommy_notebook.org.gpg" }
 
 # program launcher
 super + @space

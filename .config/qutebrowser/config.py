@@ -15,6 +15,10 @@ from qutebrowser.api import interceptor
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Load a restored tab as soon as it takes focus.
+# Type: Bool
+c.session.lazy_restore = True
+
 # Always restore open sites when qutebrowser is reopened. Without this
 # option set, `:wq` (`:quit --save`) needs to be used to save open tabs
 # (and restore them), while quitting qutebrowser in any other way will
@@ -263,13 +267,13 @@ c.colors.webpage.darkmode.enabled = True
 #   - lightness-cielab: Modify colors by converting them to CIELAB color space and inverting the L value. Not available with Qt < 5.14.
 #   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
 #   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
-c.colors.webpage.darkmode.algorithm = 'brightness-rgb'
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = 'Iosevka'
+c.fonts.default_family = 'Terminus'
 
 # Bindings for normal mode
 config.bind(',ap', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/apprentice/apprentice-all-sites.css ""')
@@ -290,7 +294,7 @@ def filter_yt(info: interceptor.Request):
     url = info.request_url
     if (
         url.host() == "www.youtube.com"
-        and url.path() == "/get_video_info"
+        # and url.path() == "/get_video_info"
         and "&adformat=" in url.query()
     ):
         info.block()
