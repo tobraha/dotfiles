@@ -326,6 +326,14 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;; set default programs for opening files
+  (setq org-file-apps
+        (quote
+         ((auto-mode . emacs)
+          ("\\.mm\\'" . default)
+          ("\\.x?html?\\'" . "/usr/bin/qutebrowser %s")
+          ("\\.pdf\\'" . default))))
+
   ;; use emacs for gpg pin entry, not local gpg agent
   (setq epa-pinentry-mode 'loopback)
 
@@ -427,6 +435,8 @@ This function is called at the very end of Spacemacs initialization."
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(browse-url-browser-function 'browse-url-generic)
+ '(browse-url-generic-program "/usr/bin/qutebrowser")
  '(custom-safe-themes
    '("6df412e59dbfe7f72f24319b9ee4513e40bb0e44384fc93a2c77399e641348f6" default))
  '(evil-want-Y-yank-to-eol nil)
