@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(perl5
+   '(go
+     perl5
      treemacs :variables
               (treemacs-use-follow-mode t
               treemacs-use-filewatch-mode t
