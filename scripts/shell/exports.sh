@@ -1,6 +1,6 @@
 # exports - sourced by .zshrc
 
-export BROWSER="/usr/bin/firefox"
+export BROWSER="/usr/bin/qutebrowser"
 export EDITOR="emacs"
 export TZ="America/Denver"
 

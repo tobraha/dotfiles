@@ -19,3 +19,4 @@ alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgre
 
 alias datto='ssh partner@partner-ssh.datto.com'
 alias bpytop='git -C $HOME/repo/bpytop pull --rebase > /dev/null 2>&1 ; $HOME/repo/bpytop/bpytop.py'
+alias weather='curl wttr.in; printf "\n\n -Press ENTER for v2 details-\n\n"; read; curl v2.wttr.in'
