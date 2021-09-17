@@ -121,7 +121,7 @@ prompt_git() {
             mode=">R>"
         fi
 
-        remote="$(git remote -v | grep origin | awk '{print $2}' | head -n 1 2>/dev/null)"
+        remote="$(git ls-remote --get-url 2>/dev/null)"
 
         setopt promptsubst
         autoload -Uz vcs_info
