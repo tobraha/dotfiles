@@ -21,6 +21,18 @@ super + alt + b ; {t,c,a,i}
 super + alt + b ; q
   qutebrowser
 
+# qemu virt-manager
+super + v
+  virt-manager
+
+# virt viewer
+super + alt + v
+  virt-viewer -c qemu:///system
+
+# spotify
+super + alt + s
+  spotify
+
 # config files; open with emacs
 super + alt + c ; {b,s,e,p,x,z,n}
   emacs { "~/.config/bspwm/bspwmrc", \
@@ -31,13 +43,20 @@ super + alt + c ; {b,s,e,p,x,z,n}
          "~/.zshrc", \
          "~/sync/ATG/tommy_notebook.org.gpg" }
 
+# redshift
+super + alt + r
+  redshift -O 3500K
+
+super + alt + x
+  redshift -x
+
 # program launcher
 super + @space
 	dmenu_run
 
-# file manager
+# emacs
 super + e
-  pcmanfm
+  emacs
 
 # ksnip screenshots
 super + Print
@@ -50,10 +69,6 @@ super + Escape
 # make dunst reload its config files:
 super + shift + Escape
   pkill -USR1 -x dunst
-
-# virt viewer
-super + v
-  virt-viewer -c qemu:///system
 
 # udiskie-dmenu - manage mounted volumes
 super + d
