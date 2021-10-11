@@ -15,7 +15,7 @@ alias ffc="$BROWSER -P Charles-IT & "
 alias fft="$BROWSER -P Tommy & "
 
 # customize zsh aliases
-alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an %ae>%Creset'"
+alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad)%Creset %C(auto,blue)[%G?:%GF]%Creset %C(bold blue)<%an>%Creset'"
 
 alias datto='ssh partner@partner-ssh.datto.com'
 alias bpytop='git -C $HOME/repo/bpytop pull --rebase > /dev/null 2>&1 ; $HOME/repo/bpytop/bpytop.py'

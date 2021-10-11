@@ -79,7 +79,7 @@ super + d
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
@@ -229,4 +229,4 @@ super + {_,alt + } XF86AudioMute
 
 # lock screen
 super + x
-  betterlockscreen -l dimblur --off 600
+  betterlockscreen -l dim --blur 0 --off 600
