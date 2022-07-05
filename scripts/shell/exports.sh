@@ -1,8 +1,9 @@
 # exports - sourced by .zshrc
 
-export BROWSER="/usr/bin/qutebrowser"
-export EDITOR="emacs"
+#export BROWSER="/usr/bin/qutebrowser"
+#export EDITOR="emacs"
 export TZ="America/Denver"
+export LOCATION="Albuquerque"
 
 # define 'less'; only use pagination if output exceeds terminal
 export LESS="-F -X $LESS"

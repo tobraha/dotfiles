@@ -282,7 +282,7 @@ config.bind(',gr', 'config-cycle content.user_stylesheets ~/repo/solarized-every
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Z', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind('Z', 'hint links spawn st -e yt-dlp {hint-url}')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')

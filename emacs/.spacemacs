@@ -444,7 +444,8 @@ This function is called at the very end of Spacemacs initialization."
  '(fci-rule-color "#151515")
  '(hl-sexp-background-color "#1c1f26")
  '(org-agenda-clockreport-parameter-plist '(:link t :maxlevel 2))
- '(org-agenda-files '("~/sync/documents/Personal.org"))
+ '(org-agenda-files
+   '("~/sync/ATG/tommy_notebook.org.gpg" "~/sync/documents/Personal.org"))
  '(org-clock-clocktable-default-properties '(:maxlevel 2 :scope file))
  '(org-clocktable-defaults
    '(:maxlevel 2 :lang "en" :scope file :block nil :wstart 1 :mstart 1 :tstart nil :tend nil :step nil :stepskip0 nil :fileskip0 nil :tags nil :match nil :emphasize nil :link nil :narrow 40! :indent t :hidefiles nil :formula nil :timestamp nil :level nil :tcolumns nil :formatter nil))
