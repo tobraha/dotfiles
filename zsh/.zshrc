@@ -70,6 +70,7 @@ export UPDATE_ZSH_DAYS=7
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -108,3 +109,5 @@ source $HOME/dotfiles/private/aliasrc 2>/dev/null
 
 # Load zsh-syntax-highlighting; should be last
 source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# fortune
