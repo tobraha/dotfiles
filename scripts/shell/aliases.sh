@@ -11,6 +11,7 @@ alias bd='base64 -d'
 alias hd='hexdump -C'
 alias em='emacs -nw'
 alias vim='nvim'
+alias clip='xclip -selection c'
 alias ogh="$BROWSER -P Ambitions https://github.com/tobraha &"
 alias ffa="$BROWSER -P Ambitions & "
 alias ffc="$BROWSER -P Charles-IT & "
