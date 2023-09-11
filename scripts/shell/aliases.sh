@@ -10,6 +10,7 @@ alias readme='pandoc README.md | lynx -stdin'
 alias bd='base64 -d'
 alias hd='hexdump -C'
 alias em='emacs -nw'
+alias vim='nvim'
 alias ogh="$BROWSER -P Ambitions https://github.com/tobraha &"
 alias ffa="$BROWSER -P Ambitions & "
 alias ffc="$BROWSER -P Charles-IT & "
