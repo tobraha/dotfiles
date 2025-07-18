@@ -276,13 +276,14 @@ c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.fonts.default_family = 'TerminessTTF'
 
 # Bindings for normal mode
+config.bind(';p', 'hint links fill :open -p {hint-url}')
 config.bind(',ap', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/apprentice/apprentice-all-sites.css ""')
 config.bind(',dr', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/darculized/darculized-all-sites.css ""')
 config.bind(',gr', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/repo/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Z', 'hint links spawn st -e yt-dlp {hint-url}')
+config.bind('Z', 'hint links spawn st -e yt-dlp -P ~/Downloads --restrict-filenames {hint-url}')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
